@@ -44,10 +44,10 @@ public class GenderPlaceholder extends PlaceholderExpansion {
                     return "";
                 }
                 case MALE -> {
-                    return "<#DA70D6> ♂";
+                    return "<#4169E1> ♂♀";
                 }
                 case FEMALE -> {
-                    return "<#4169E1> ♀";
+                    return "<#DA70D6> ♂";
                 }
             }
         }
