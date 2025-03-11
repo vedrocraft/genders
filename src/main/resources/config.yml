@@ -1,0 +1,11 @@
+configuration:
+  sql-use: false
+  sql-host: 'localhost:3306'
+  sql-database: 'database'
+  sql-user: 'user'
+  sql-password: 'password'
+
+  reload-message: '<green>Плагин перезапущен.'
+
+  gender-successful-change-message: '<green>Вы успешно сменили гендер.'
+  gender-already-selected-message: '<red>У вас уже выбран этот гендер.'
