@@ -32,7 +32,6 @@ public class GendersCommand {
 
     @Async
     @Execute
-    @Permission("genders.use")
     void execute(@Context Player sender, @Arg("гендер") Gender gender) {
         GenderUser user = userService.getUser(sender.getName());
 
