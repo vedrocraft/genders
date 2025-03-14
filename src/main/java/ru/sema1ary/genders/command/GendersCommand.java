@@ -19,7 +19,6 @@ import ru.sema1ary.vedrocraftapi.service.ConfigService;
 @RequiredArgsConstructor
 @Command(name = "genders", aliases = {"gender"})
 public class GendersCommand {
-    private final MiniMessage miniMessage = MiniMessage.miniMessage();
     private final ConfigService configService;
     private final GenderUserService userService;
 
