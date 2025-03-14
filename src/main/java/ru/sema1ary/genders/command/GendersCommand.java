@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import ru.sema1ary.genders.model.Gender;
 import ru.sema1ary.genders.model.GenderUser;
 import ru.sema1ary.genders.service.GenderUserService;
+import ru.sema1ary.vedrocraftapi.player.PlayerUtil;
 import ru.sema1ary.vedrocraftapi.service.ConfigService;
 
 @RequiredArgsConstructor
@@ -27,7 +28,8 @@ public class GendersCommand {
     @Permission("genders.reload")
     void reload(@Context CommandSender sender) {
         configService.reload();
-        sender.sendMessage(miniMessage.deserialize(configService.get("reload-message")));
+
+        PlayerUtil.sendMessage(sender, configService.get("reload-message"));
     }
 
     @Async
@@ -36,13 +38,13 @@ public class GendersCommand {
         GenderUser user = userService.getUser(sender.getName());
 
         if(user.getGender().equals(gender)) {
-            sender.sendMessage(miniMessage.deserialize(configService.get("gender-already-selected-message")));
+            PlayerUtil.sendMessage(sender, configService.get("gender-already-selected-message"));
             return;
         }
 
         user.setGender(gender);
         userService.save(user);
 
-        sender.sendMessage(miniMessage.deserialize(configService.get("gender-successful-change-message")));
+        PlayerUtil.sendMessage(sender, configService.get("gender-successful-change-message"));
     }
 }
