@@ -28,7 +28,7 @@ public class GendersCommand {
     void reload(@Context CommandSender sender) {
         configService.reload();
 
-        PlayerUtil.sendMessage(sender, configService.get("reload-message"));
+        PlayerUtil.sendMessage(sender, (String) configService.get("reload-message"));
     }
 
     @Async
@@ -37,13 +37,13 @@ public class GendersCommand {
         GenderUser user = userService.getUser(sender.getName());
 
         if(user.getGender().equals(gender)) {
-            PlayerUtil.sendMessage(sender, configService.get("gender-already-selected-message"));
+            PlayerUtil.sendMessage(sender, (String) configService.get("gender-already-selected-message"));
             return;
         }
 
         user.setGender(gender);
         userService.save(user);
 
-        PlayerUtil.sendMessage(sender, configService.get("gender-successful-change-message"));
+        PlayerUtil.sendMessage(sender, (String) configService.get("gender-successful-change-message"));
     }
 }
